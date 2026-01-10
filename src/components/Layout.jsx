@@ -5,9 +5,12 @@ function Layout({ children }) {
 
   const navItems = [
     { path: '/', label: 'Home', emoji: '🏠' },
+    { path: '/crash-course', label: '3hr Prep', emoji: '🚀', highlight: true },
     { path: '/lessons', label: 'Lessons', emoji: '📚' },
     { path: '/problems', label: 'Problems', emoji: '🧩' },
     { path: '/quiz', label: 'Quiz', emoji: '✏️' },
+    { path: '/strategy', label: 'Strategy', emoji: '🎯' },
+    { path: '/quickref', label: 'Quick Ref', emoji: '📋' },
   ]
 
   return (
@@ -28,7 +31,9 @@ function Layout({ children }) {
                   className={`px-3 py-2 rounded-lg text-sm font-medium transition-all ${
                     location.pathname === item.path
                       ? 'bg-indigo-100 text-indigo-700'
-                      : 'text-gray-600 hover:bg-gray-100'
+                      : item.highlight
+                        ? 'bg-red-100 text-red-700 hover:bg-red-200'
+                        : 'text-gray-600 hover:bg-gray-100'
                   }`}
                 >
                   <span className="hidden sm:inline">{item.emoji} </span>

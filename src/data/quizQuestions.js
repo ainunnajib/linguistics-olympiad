@@ -118,5 +118,85 @@ export const quizQuestions = [
     options: ["Guess the answer quickly", "Organize the data in a table", "Skip to the hardest question", "Assume it's like English"],
     correct: 1,
     explanation: "Organizing data in a table helps you see patterns clearly. Never assume a language works like English! Systematic analysis beats guessing, and you should solve easier parts first."
+  },
+  {
+    id: 16,
+    category: "Number Systems",
+    question: "A language has: 6='hand-one', 7='hand-two', 10='two-hands'. What is the base?",
+    options: ["Base-5", "Base-6", "Base-10", "Base-12"],
+    correct: 0,
+    explanation: "This is base-5 (quinary). 'Hand' = 5, so 6 = 5+1, 7 = 5+2, 10 = 2×5. Many languages use hand-based counting."
+  },
+  {
+    id: 17,
+    category: "Morphology",
+    question: "In Turkish, 'ev'=house, 'evler'=houses, 'evlerim'=my houses. What is '-im'?",
+    options: ["Plural marker", "Possessive marker (my)", "Accusative case", "Past tense"],
+    correct: 1,
+    explanation: "'-im' is the 1st person possessive suffix meaning 'my'. Turkish is agglutinative: ev-ler-im = house-PLURAL-my."
+  },
+  {
+    id: 18,
+    category: "Phonology",
+    question: "Latin 'octo' became Spanish 'ocho'. The change ct→ch is called:",
+    options: ["Deletion", "Metathesis", "Palatalization", "Vowel harmony"],
+    correct: 2,
+    explanation: "Palatalization is when sounds become palatal (made with tongue at hard palate). CT→CH involves the sounds moving to the palatal region."
+  },
+  {
+    id: 19,
+    category: "Syntax",
+    question: "Welsh 'Gwelodd y dyn y ci' = 'The man saw the dog'. What word order is this?",
+    options: ["SVO", "SOV", "VSO", "OVS"],
+    correct: 2,
+    explanation: "Welsh is VSO: Gwelodd (saw) + y dyn (the man) + y ci (the dog). The verb comes first, which is common in Celtic languages."
+  },
+  {
+    id: 20,
+    category: "Writing Systems",
+    question: "Cherokee has 85 symbols. This suggests it's probably a:",
+    options: ["Alphabet", "Syllabary", "Logographic system", "Abjad"],
+    correct: 1,
+    explanation: "85 symbols is typical for a syllabary (each symbol = syllable). Cherokee was invented by Sequoyah in the 1820s with one symbol per syllable."
+  },
+  {
+    id: 21,
+    category: "Morphology",
+    question: "Arabic: 'kitab'=book, 'kutub'=books, 'katib'=writer, 'maktaba'=library. What pattern is this?",
+    options: ["Prefixation", "Suffixation", "Root and pattern (templatic)", "Compounding"],
+    correct: 2,
+    explanation: "Arabic uses root-and-pattern morphology. The root K-T-B (writing) combines with vowel patterns: kiCaC=thing, CuCuC=plural, CaCiC=doer, maCCaCa=place."
+  },
+  {
+    id: 22,
+    category: "Phonology",
+    question: "If a language voices consonants between vowels (p→b, t→d, k→g), where does this change happen?",
+    options: ["Word-initially", "Word-finally", "Intervocalically", "Before nasals"],
+    correct: 2,
+    explanation: "'Intervocalic' means between vowels. Voicing between vowels is common because vowels are voiced, and consonants assimilate to their environment."
+  },
+  {
+    id: 23,
+    category: "Syntax",
+    question: "Japanese uses particles like 'wa' (topic) and 'ga' (subject). What are these called?",
+    options: ["Prepositions", "Postpositions/Case particles", "Conjunctions", "Determiners"],
+    correct: 1,
+    explanation: "Japanese uses postpositions (come after nouns) or case particles. 'Wa' marks the topic, 'ga' marks the subject, 'o/wo' marks the object."
+  },
+  {
+    id: 24,
+    category: "General",
+    question: "Which strategy is MOST useful when stuck on a linguistics problem?",
+    options: ["Skip it entirely", "Look for minimal pairs (small differences)", "Assume it works like English", "Guess based on the first example"],
+    correct: 1,
+    explanation: "Minimal pairs - words/phrases differing in just one element - reveal what each element means. Comparing similar forms is the key to linguistic analysis."
+  },
+  {
+    id: 25,
+    category: "Number Systems",
+    question: "Yoruba uses subtraction: 15 = 20-5 (ẹẹ́dógún). This is called:",
+    options: ["Additive system", "Subtractive system", "Multiplicative system", "Base-15 system"],
+    correct: 1,
+    explanation: "Subtractive systems express numbers by subtraction from a larger unit. Latin also does this: 19 = undeviginti (one-from-twenty)."
   }
 ];

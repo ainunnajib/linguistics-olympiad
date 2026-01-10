@@ -11,17 +11,38 @@ function Home() {
     },
     {
       emoji: '🧩',
-      title: 'Example Problems',
-      description: 'Practice with real olympiad-style problems and solutions',
+      title: 'Practice Problems',
+      description: '10 olympiad-style problems with hints and solutions',
       link: '/problems',
       color: 'bg-purple-50 hover:bg-purple-100 border-purple-200',
     },
     {
       emoji: '✏️',
-      title: 'Quiz Yourself',
+      title: 'Quiz (25 Qs)',
       description: 'Test your knowledge with interactive quizzes',
       link: '/quiz',
       color: 'bg-green-50 hover:bg-green-100 border-green-200',
+    },
+    {
+      emoji: '🎯',
+      title: 'Exam Strategy',
+      description: 'Time management and problem-solving tips',
+      link: '/strategy',
+      color: 'bg-orange-50 hover:bg-orange-100 border-orange-200',
+    },
+    {
+      emoji: '📋',
+      title: 'Quick Reference',
+      description: 'All key patterns and terminology in one place',
+      link: '/quickref',
+      color: 'bg-teal-50 hover:bg-teal-100 border-teal-200',
+    },
+    {
+      emoji: '🚀',
+      title: '3-Hour Crash Course',
+      description: 'Structured prep plan for last-minute study',
+      link: '/crash-course',
+      color: 'bg-red-50 hover:bg-red-100 border-red-200',
     },
   ]
 
@@ -35,6 +56,21 @@ function Home() {
 
   return (
     <div>
+      {/* Urgent Banner */}
+      <Link
+        to="/crash-course"
+        className="block mb-6 bg-gradient-to-r from-red-500 to-orange-500 rounded-xl p-4 text-white hover:from-red-600 hover:to-orange-600 transition-all"
+      >
+        <div className="flex items-center justify-center gap-3">
+          <span className="text-2xl">⏰</span>
+          <div className="text-center">
+            <p className="font-bold text-lg">Competition Soon? Start Here!</p>
+            <p className="text-sm opacity-90">3-Hour Crash Course → Click to begin</p>
+          </div>
+          <span className="text-2xl">🚀</span>
+        </div>
+      </Link>
+
       {/* Hero Section */}
       <div className="text-center mb-12">
         <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -48,7 +84,7 @@ function Home() {
       </div>
 
       {/* Feature Cards */}
-      <div className="grid md:grid-cols-3 gap-6 mb-12">
+      <div className="grid md:grid-cols-3 gap-4 mb-12">
         {features.map((feature) => (
           <Link
             key={feature.title}

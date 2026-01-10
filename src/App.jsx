@@ -6,6 +6,9 @@ import LessonDetail from './pages/LessonDetail'
 import Problems from './pages/Problems'
 import ProblemDetail from './pages/ProblemDetail'
 import QuizPage from './pages/QuizPage'
+import Strategy from './pages/Strategy'
+import QuickRef from './pages/QuickRef'
+import CrashCourse from './pages/CrashCourse'
 
 function App() {
   return (
@@ -17,6 +20,9 @@ function App() {
         <Route path="/problems" element={<Problems />} />
         <Route path="/problems/:id" element={<ProblemDetail />} />
         <Route path="/quiz" element={<QuizPage />} />
+        <Route path="/strategy" element={<Strategy />} />
+        <Route path="/quickref" element={<QuickRef />} />
+        <Route path="/crash-course" element={<CrashCourse />} />
       </Routes>
     </Layout>
   )

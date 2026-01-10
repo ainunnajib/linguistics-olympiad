@@ -395,5 +395,452 @@ Therefore: ■ = 'wa'
 ### Key Insight:
 This is a simple syllabary where each symbol = one syllable. Real ancient scripts like Linear B and Hiragana work similarly!
     `
+  },
+  {
+    id: 6,
+    title: "Georgian Verb Agreement",
+    emoji: "🇬🇪",
+    category: "Morphology",
+    difficulty: "Hard",
+    description: "Decode Georgian's complex verb agreement system.",
+    problem: `
+## Problem
+
+Georgian verbs agree with both subject AND object. Study these forms:
+
+| Georgian | English |
+|----------|---------|
+| vxatav | I paint it |
+| xatav | You paint it |
+| xatavs | He/She paints it |
+| vxatavt | We paint it |
+| gxatav | I paint you |
+| gxatavt | I paint you (plural) |
+| mxatav | You paint me |
+| mxatavs | He/She paints me |
+| gvxatav | You paint us |
+| gvxatavs | He/She paints us |
+
+### Questions:
+1. What does the root **-xatav-** mean?
+2. What does **v-** indicate?
+3. What does **-s** indicate?
+4. What does **m-** indicate? What about **g-**?
+5. How would you say "We paint you (plural)"?
+    `,
+    hints: [
+      "The root stays constant - what part is always there?",
+      "Compare 'vxatav' (I paint it) with 'xatav' (You paint it)",
+      "Look at object markers: what's the difference between 'mxatav' and 'gxatav'?"
+    ],
+    solution: `
+## Solution
+
+### Analysis:
+
+**Step 1: Find the root**
+The constant part is **-xatav-** = "paint"
+
+**Step 2: Identify subject markers**
+- **v-** at start = "I" or "we" (1st person subject)
+- **-t** at end = plural subject (we/you-pl)
+- **-s** at end = 3rd person subject (he/she)
+- No v-, no -s = "you" (singular)
+
+**Step 3: Identify object markers**
+- **m-** = "me" (1st person singular object)
+- **gv-** = "us" (1st person plural object)
+- **g-** = "you/you-all" (2nd person object)
+- No prefix = "it" (3rd person object)
+
+### Answers:
+
+1. **-xatav-** = paint (verb root)
+
+2. **v-** = 1st person subject marker (I/we)
+
+3. **-s** = 3rd person subject marker (he/she)
+
+4. **m-** = 1st person singular object (me)
+   **g-** = 2nd person object (you)
+
+5. "We paint you (plural)":
+   - Subject: we → v- ... -t
+   - Object: you-plural → g-
+   - Answer: **gvxatavt** (g- for "you" + v- for "we" + xatav + -t for plural)
+
+### Key Insight:
+Georgian is **polypersonal** - verbs mark both subject AND object with affixes. The subject uses both prefix (v-) and suffix (-s/-t), while objects use prefixes only (m-, g-, gv-).
+    `
+  },
+  {
+    id: 7,
+    title: "Basque Numbers",
+    emoji: "🔢",
+    category: "Number Systems",
+    difficulty: "Medium",
+    description: "Uncover Basque's vigesimal (base-20) counting system.",
+    problem: `
+## Problem
+
+Basque uses a base-20 number system. Study these numbers:
+
+| Number | Basque |
+|--------|--------|
+| 1 | bat |
+| 2 | bi |
+| 3 | hiru |
+| 4 | lau |
+| 5 | bost |
+| 10 | hamar |
+| 11 | hamaika |
+| 15 | hamabost |
+| 20 | hogei |
+| 21 | hogeita bat |
+| 25 | hogeita bost |
+| 30 | hogeita hamar |
+| 40 | berrogei |
+| 60 | hirurogei |
+| 80 | laurogei |
+
+### Questions:
+1. How is 15 formed?
+2. What does "hogeita" mean?
+3. How would you say 35?
+4. How would you say 50?
+5. What pattern forms 40, 60, 80?
+    `,
+    hints: [
+      "Compare hamar (10) with hamabost (15)",
+      "Break down 'berrogei' - what could 'berr-' relate to?",
+      "30 = 20 + 10, so what would 50 be?"
+    ],
+    solution: `
+## Solution
+
+### Analysis:
+
+**Base numbers:**
+- hamar = 10
+- hogei = 20
+
+**Building teens (11-19):**
+- 11 = hamaika (special form)
+- 15 = hama-bost = 10 + 5
+
+**Building 20s:**
+- hogeita = "twenty and"
+- 21 = hogeita bat (20 and 1)
+- 25 = hogeita bost (20 and 5)
+- 30 = hogeita hamar (20 and 10)
+
+**Multiples of 20:**
+- 40 = berrogei = bi-hogei = 2 × 20
+- 60 = hirurogei = hiru-hogei = 3 × 20
+- 80 = laurogei = lau-hogei = 4 × 20
+
+### Answers:
+
+1. **15** = hama + bost = 10 + 5 (additive)
+
+2. **hogeita** = "twenty and" (used for numbers 21-39)
+
+3. **35** = hogeita hamabost (20 and 15)
+
+4. **50** = berrogeita hamar (40 and 10, or 2×20 + 10)
+
+5. **Pattern for 40, 60, 80:**
+   - Multiplier (bi→berr, hiru→hirur, lau→laur) + ogei
+   - berrogei = 2×20, hirurogei = 3×20, laurogei = 4×20
+   - Note: sound changes occur (bi→berr, etc.)
+
+### Key Insight:
+Basque uses a **vigesimal (base-20)** system, similar to French quatre-vingts (80 = 4×20). Numbers are built by multiples of 20 plus additions.
+    `
+  },
+  {
+    id: 8,
+    title: "Hawaiian Phonology",
+    emoji: "🌺",
+    category: "Phonology",
+    difficulty: "Medium",
+    description: "Discover the sound rules of Hawaiian.",
+    problem: `
+## Problem
+
+Hawaiian has strict rules about what sounds can appear together. Study these words:
+
+| Hawaiian | English |
+|----------|---------|
+| aloha | love, hello |
+| mahalo | thank you |
+| wiki | quick |
+| hula | dance |
+| keiki | child |
+| wahine | woman |
+| kane | man |
+| lanai | porch |
+| pua | flower |
+| kai | sea |
+| lei | garland |
+| moana | ocean |
+
+Now look at some English loanwords adapted into Hawaiian:
+
+| English | Hawaiian |
+|---------|----------|
+| Christmas | Kalikimaka |
+| ticket | kikiki |
+| Bible | Baibala |
+| Smith | Kamika |
+
+### Questions:
+1. What consonants does Hawaiian allow?
+2. What rule governs syllable structure?
+3. Why does "Christmas" become "Kalikimaka"?
+4. Why does "Smith" become "Kamika"?
+    `,
+    hints: [
+      "List all consonants you see in the native words",
+      "Look at every syllable - what pattern do you notice about C and V?",
+      "What does Hawaiian do with consonant clusters like 'Chr' or 'sm'?"
+    ],
+    solution: `
+## Solution
+
+### Analysis:
+
+**Step 1: Identify Hawaiian consonants**
+From native words: h, l, k, m, n, p, w
+(Also allowed but not in examples: ' (glottal stop))
+
+**Total: only 8 consonants!**
+
+**Step 2: Syllable structure**
+Looking at syllables:
+- a.lo.ha (V.CV.CV)
+- ma.ha.lo (CV.CV.CV)
+- wi.ki (CV.CV)
+- ke.i.ki (CV.V.CV)
+
+**Pattern: (C)V** - every syllable is either V or CV
+- No consonant clusters allowed
+- Every syllable ends in a vowel
+- No closed syllables (no CVC)
+
+**Step 3: Loanword adaptation**
+
+"Christmas" → "Kalikimaka":
+- Chr → K (cluster simplified, r not allowed)
+- s → k (s not in Hawaiian)
+- t → k (t not in Hawaiian)
+- mas → maka (add vowel to end)
+
+"Smith" → "Kamika":
+- Sm → Ka (break cluster, s→k)
+- th → k (th not in Hawaiian)
+- Final consonant → add 'a'
+
+### Answers:
+
+1. **Hawaiian consonants:** h, k, l, m, n, p, w, ʻ (glottal stop)
+   - Only 8 consonants! No s, t, r, b, d, g, etc.
+
+2. **Syllable rule:** (C)V only
+   - Every syllable must end in a vowel
+   - No consonant clusters
+   - Maximum one consonant per syllable (at start)
+
+3. **"Christmas" → "Kalikimaka":**
+   - Break up clusters: Chr→Ka, st→ki
+   - Replace missing sounds: s→k, t→k, r→l
+   - Add final vowel: -mas→-maka
+
+4. **"Smith" → "Kamika":**
+   - Sm → Kam (break cluster)
+   - i stays
+   - th → k (no 'th' sound)
+   - Add final -a (no final consonants)
+
+### Key Insight:
+Hawaiian has very strict **phonotactics** - rules about what sounds can combine. All syllables must be (C)V, forcing major changes to loanwords.
+    `
+  },
+  {
+    id: 9,
+    title: "Latin to Romance",
+    emoji: "🏛️",
+    category: "Phonology",
+    difficulty: "Hard",
+    description: "Trace sound changes from Latin to Spanish and Italian.",
+    problem: `
+## Problem
+
+Compare these Latin words with their descendants:
+
+| Latin | Spanish | Italian | English |
+|-------|---------|---------|---------|
+| noctem | noche | notte | night |
+| octo | ocho | otto | eight |
+| factum | hecho | fatto | fact |
+| lactem | leche | latte | milk |
+| dictum | dicho | detto | said |
+| pectus | pecho | petto | chest |
+
+### Questions:
+1. What happened to Latin "ct" in Spanish?
+2. What happened to Latin "ct" in Italian?
+3. What is the pattern for Latin initial "f" in Spanish? (Look at 'factum'→'hecho')
+4. Predict: Latin "lectum" (read) in Spanish and Italian?
+    `,
+    hints: [
+      "Focus on what 'ct' becomes in each language",
+      "Spanish 'ch' is the sound in 'church'",
+      "Italian 'tt' is a doubled/long consonant",
+      "The f→h change in Spanish is famous - compare 'hijo' (son) from Latin 'filius'"
+    ],
+    solution: `
+## Solution
+
+### Analysis:
+
+**Latin CT cluster changes:**
+
+| Latin | Spanish | Italian |
+|-------|---------|---------|
+| ct | ch /tʃ/ | tt |
+
+Examples:
+- noctem → noche, notte
+- octo → ocho, otto
+- factum → (f)echo, fatto
+- lactem → leche, latte
+
+**Spanish changes:**
+- ct → ch (palatalization)
+- f → h (at word start, before vowels)
+
+**Italian changes:**
+- ct → tt (total assimilation)
+
+### Answers:
+
+1. **Latin "ct" in Spanish → "ch"** [tʃ]
+   - This is palatalization - the sounds merged into an affricate
+
+2. **Latin "ct" in Italian → "tt"**
+   - This is total assimilation - the first consonant becomes identical to the second
+
+3. **Latin initial "f" in Spanish → "h"**
+   - factum → hecho (not *fecho)
+   - This is a famous Spanish sound change
+   - The "h" is now silent in modern Spanish
+
+4. **Predict "lectum":**
+   - Spanish: **lecho** (l + e + ch + o)
+   - Italian: **letto** (l + e + tt + o)
+   (Both mean "bed" in modern usage!)
+
+### Key Insight:
+Sound changes are **regular** - they apply consistently across the vocabulary. Once you identify a pattern, you can predict forms you haven't seen!
+
+### Bonus Pattern:
+This is why Spanish and Italian are recognizably related but sound different:
+- Spanish favored palatalization (ct→ch, cl→ll)
+- Italian favored gemination/doubling (ct→tt, pt→tt)
+    `
+  },
+  {
+    id: 10,
+    title: "Korean Honorifics",
+    emoji: "🇰🇷",
+    category: "Syntax",
+    difficulty: "Hard",
+    description: "Navigate Korean's speech level system.",
+    problem: `
+## Problem
+
+Korean uses different verb endings based on politeness level. Study these sentences:
+
+**Informal (반말 - banmal):**
+| Korean | English |
+|--------|---------|
+| 먹어 (meog-eo) | eat / (I) eat |
+| 가 (ga) | go / (I) go |
+| 해 (hae) | do / (I) do |
+
+**Polite (해요체 - haeyoche):**
+| Korean | English |
+|--------|---------|
+| 먹어요 (meog-eo-yo) | (I) eat (polite) |
+| 가요 (ga-yo) | (I) go (polite) |
+| 해요 (hae-yo) | (I) do (polite) |
+
+**Formal (합쇼체 - hapsyoche):**
+| Korean | English |
+|--------|---------|
+| 먹습니다 (meok-seumnida) | (I) eat (formal) |
+| 갑니다 (gam-nida) | (I) go (formal) |
+| 합니다 (ham-nida) | (I) do (formal) |
+
+More verbs:
+| Dictionary form | Meaning |
+|-----------------|---------|
+| 보다 (boda) | to see |
+| 읽다 (ikda) | to read |
+| 마시다 (masida) | to drink |
+
+### Questions:
+1. What morpheme makes informal → polite?
+2. What's the formal ending pattern?
+3. Give all three forms for "보다" (to see)
+4. Why might Korean need multiple politeness levels?
+    `,
+    hints: [
+      "Compare meog-eo with meog-eo-yo - what's added?",
+      "The formal form has a different stem - look at how the verb root changes",
+      "For 보다, the informal is 봐 (bwa) - a contracted form of 보+아"
+    ],
+    solution: `
+## Solution
+
+### Analysis:
+
+**Politeness suffixes:**
+- Informal: bare stem (먹어, 가, 해)
+- Polite: stem + **-요 (-yo)**
+- Formal: stem + **-습니다/-ㅂ니다 (-seumnida/-mnida)**
+
+**Stem formation:**
+- Verbs with consonant-final stems: add -습니다
+- Verbs with vowel-final stems: add -ㅂ니다
+
+### Answers:
+
+1. **Informal → Polite:** Add **-요 (-yo)**
+   - 먹어 → 먹어요
+   - 가 → 가요
+   - This is the most common polite form in daily Korean
+
+2. **Formal ending pattern:** **-습니다 / -ㅂ니다** (-seumnida / -mnida)
+   - After consonant: 먹 → 먹습니다
+   - After vowel: 가 → 갑니다 (가 + ㅂ니다)
+
+3. **보다 (to see) in all forms:**
+   - Informal: **봐** (bwa) - contracted from 보+아
+   - Polite: **봐요** (bwayo)
+   - Formal: **봅니다** (bomnida) - 보 + ㅂ니다
+
+4. **Why multiple levels?**
+   - Korean society emphasizes hierarchy and social relationships
+   - Age, social status, and familiarity determine speech level
+   - Using wrong level can be rude or awkward
+   - Formal: news, presentations, military
+   - Polite: strangers, elders, customers
+   - Informal: close friends, younger people, children
+
+### Key Insight:
+Korean **honorifics** are grammatically encoded - you can't speak Korean without indicating your relationship to the listener. This is called a **speech level system** and reflects Korean cultural values.
+    `
   }
 ];
