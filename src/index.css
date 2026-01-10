@@ -2,6 +2,238 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: system-ui, -apple-system, sans-serif;
+/* Base styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans text-ink-900 antialiased;
+    background: linear-gradient(135deg, #0a1929 0%, #102a43 50%, #0f172a 100%);
+    min-height: 100vh;
+  }
+
+  /* Elegant selection color */
+  ::selection {
+    @apply bg-amber-500/30 text-amber-100;
+  }
+}
+
+/* Custom utilities */
+@layer utilities {
+  /* Paper texture overlay */
+  .paper-texture {
+    position: relative;
+  }
+
+  .paper-texture::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+  }
+
+  /* Decorative border */
+  .ornate-border {
+    position: relative;
+  }
+
+  .ornate-border::before,
+  .ornate-border::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: 2px solid currentColor;
+    opacity: 0.3;
+  }
+
+  .ornate-border::before {
+    top: -4px;
+    left: -4px;
+    border-right: none;
+    border-bottom: none;
+  }
+
+  .ornate-border::after {
+    bottom: -4px;
+    right: -4px;
+    border-left: none;
+    border-top: none;
+  }
+
+  /* Gradient text */
+  .text-gradient {
+    @apply bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 bg-clip-text text-transparent;
+  }
+
+  /* Shimmer effect for loading states */
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.1) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s linear infinite;
+  }
+
+  /* Staggered animation delays */
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+  .stagger-6 { animation-delay: 0.6s; }
+
+  /* Glow effects */
+  .glow-amber {
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.15),
+                0 0 40px rgba(251, 191, 36, 0.1),
+                0 0 60px rgba(251, 191, 36, 0.05);
+  }
+
+  .glow-amber-strong {
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.3),
+                0 0 40px rgba(251, 191, 36, 0.2),
+                0 0 60px rgba(251, 191, 36, 0.1);
+  }
+
+  /* Card hover lift */
+  .hover-lift {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+  }
+
+  /* Decorative flourish */
+  .flourish {
+    display: inline-block;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, currentColor 50%, transparent 100%);
+    opacity: 0.4;
+  }
+
+  /* Focus ring for accessibility */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:ring-offset-2 focus:ring-offset-navy-900;
+  }
+}
+
+/* Component styles */
+@layer components {
+  /* Glass card effect */
+  .glass-card {
+    @apply bg-navy-800/60 backdrop-blur-md border border-navy-700/50 rounded-2xl;
+  }
+
+  /* Warm card (cream colored) */
+  .warm-card {
+    @apply bg-ink-50 text-ink-900 rounded-2xl;
+  }
+
+  /* Primary button */
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-xl
+           bg-gradient-to-r from-amber-500 to-amber-600
+           text-navy-950 font-semibold
+           hover:from-amber-400 hover:to-amber-500
+           focus-ring
+           transition-all duration-200
+           hover:shadow-lg hover:shadow-amber-500/25;
+  }
+
+  /* Secondary button */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-xl
+           bg-navy-700/50 border border-navy-600/50
+           text-ink-100 font-medium
+           hover:bg-navy-600/50 hover:border-navy-500/50
+           focus-ring
+           transition-all duration-200;
+  }
+
+  /* Navigation pill */
+  .nav-pill {
+    @apply px-4 py-2 rounded-lg text-sm font-medium
+           transition-all duration-200
+           focus-ring;
+  }
+
+  .nav-pill-active {
+    @apply bg-amber-500/20 text-amber-400 border border-amber-500/30;
+  }
+
+  .nav-pill-inactive {
+    @apply text-ink-300 hover:text-ink-100 hover:bg-navy-700/50;
+  }
+
+  /* Badge styles */
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium;
+  }
+
+  .badge-amber {
+    @apply bg-amber-500/20 text-amber-400 border border-amber-500/30;
+  }
+
+  .badge-green {
+    @apply bg-emerald-500/20 text-emerald-400 border border-emerald-500/30;
+  }
+
+  .badge-yellow {
+    @apply bg-yellow-500/20 text-yellow-400 border border-yellow-500/30;
+  }
+
+  .badge-red {
+    @apply bg-rose-500/20 text-rose-400 border border-rose-500/30;
+  }
+
+  .badge-blue {
+    @apply bg-sky-500/20 text-sky-400 border border-sky-500/30;
+  }
+
+  .badge-purple {
+    @apply bg-purple-500/20 text-purple-400 border border-purple-500/30;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-navy-900;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-navy-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-navy-500;
+}
+
+/* Animation keyframes are defined in tailwind.config.js */
+
+/* Page transition wrapper */
+.page-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms ease-out, transform 300ms ease-out;
 }

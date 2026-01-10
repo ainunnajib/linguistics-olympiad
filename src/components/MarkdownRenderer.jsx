@@ -12,20 +12,23 @@ function MarkdownRenderer({ content }) {
 
     const processInlineFormatting = (text) => {
       // Bold
-      text = text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+      text = text.replace(/\*\*(.+?)\*\*/g, '<strong class="text-ink-100 font-semibold">$1</strong>')
       // Italic
-      text = text.replace(/\*(.+?)\*/g, '<em>$1</em>')
+      text = text.replace(/\*(.+?)\*/g, '<em class="text-ink-200 italic">$1</em>')
       // Code
-      text = text.replace(/`(.+?)`/g, '<code class="bg-gray-100 px-1 py-0.5 rounded text-sm font-mono text-indigo-600">$1</code>')
+      text = text.replace(/`(.+?)`/g, '<code class="bg-navy-700/50 border border-navy-600/50 px-1.5 py-0.5 rounded text-sm font-mono text-amber-400">$1</code>')
       return text
     }
 
     const flushList = () => {
       if (listItems.length > 0) {
         elements.push(
-          <ul key={`list-${elements.length}`} className="list-disc list-inside space-y-1 mb-4 text-gray-700">
+          <ul key={`list-${elements.length}`} className="space-y-2 mb-6 text-ink-300">
             {listItems.map((item, i) => (
-              <li key={i} dangerouslySetInnerHTML={{ __html: processInlineFormatting(item) }} />
+              <li key={i} className="flex items-start gap-3">
+                <span className="text-amber-500 mt-1.5">•</span>
+                <span dangerouslySetInnerHTML={{ __html: processInlineFormatting(item) }} />
+              </li>
             ))}
           </ul>
         )
@@ -39,12 +42,12 @@ function MarkdownRenderer({ content }) {
         const headerRow = tableRows[0]
         const dataRows = tableRows.slice(2) // Skip header and separator
         elements.push(
-          <div key={`table-${elements.length}`} className="overflow-x-auto mb-4">
-            <table className="min-w-full border border-gray-200 rounded-lg overflow-hidden">
-              <thead className="bg-gray-50">
+          <div key={`table-${elements.length}`} className="overflow-x-auto mb-6 rounded-xl border border-navy-700/50">
+            <table className="min-w-full">
+              <thead className="bg-navy-800/50">
                 <tr>
                   {headerRow.split('|').filter(cell => cell.trim()).map((cell, i) => (
-                    <th key={i} className="px-4 py-2 text-left text-sm font-semibold text-gray-700 border-b">
+                    <th key={i} className="px-4 py-3 text-left text-sm font-semibold text-ink-200 border-b border-navy-700/50">
                       {cell.trim()}
                     </th>
                   ))}
@@ -52,11 +55,11 @@ function MarkdownRenderer({ content }) {
               </thead>
               <tbody>
                 {dataRows.map((row, rowIndex) => (
-                  <tr key={rowIndex} className={rowIndex % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                  <tr key={rowIndex} className={rowIndex % 2 === 0 ? 'bg-navy-800/20' : 'bg-navy-800/40'}>
                     {row.split('|').filter(cell => cell.trim()).map((cell, cellIndex) => (
                       <td
                         key={cellIndex}
-                        className="px-4 py-2 text-sm text-gray-600 border-b"
+                        className="px-4 py-3 text-sm text-ink-300 border-b border-navy-700/30"
                         dangerouslySetInnerHTML={{ __html: processInlineFormatting(cell.trim()) }}
                       />
                     ))}
@@ -76,7 +79,7 @@ function MarkdownRenderer({ content }) {
       if (line.trim().startsWith('```')) {
         if (inCodeBlock) {
           elements.push(
-            <pre key={`code-${index}`} className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto mb-4 text-sm">
+            <pre key={`code-${index}`} className="bg-navy-950 border border-navy-700/50 text-ink-200 p-4 rounded-xl overflow-x-auto mb-6 text-sm font-mono">
               <code>{codeContent.join('\n')}</code>
             </pre>
           )
@@ -115,7 +118,7 @@ function MarkdownRenderer({ content }) {
       if (line.startsWith('# ')) {
         flushList()
         elements.push(
-          <h1 key={`h1-${index}`} className="text-2xl font-bold text-gray-900 mb-4 mt-6">
+          <h1 key={`h1-${index}`} className="font-serif text-2xl font-bold text-ink-100 mb-4 mt-8 first:mt-0">
             {line.slice(2)}
           </h1>
         )
@@ -124,7 +127,7 @@ function MarkdownRenderer({ content }) {
       if (line.startsWith('## ')) {
         flushList()
         elements.push(
-          <h2 key={`h2-${index}`} className="text-xl font-bold text-gray-900 mb-3 mt-6">
+          <h2 key={`h2-${index}`} className="font-serif text-xl font-bold text-ink-100 mb-3 mt-8 first:mt-0">
             {line.slice(3)}
           </h2>
         )
@@ -133,7 +136,7 @@ function MarkdownRenderer({ content }) {
       if (line.startsWith('### ')) {
         flushList()
         elements.push(
-          <h3 key={`h3-${index}`} className="text-lg font-semibold text-gray-800 mb-2 mt-4">
+          <h3 key={`h3-${index}`} className="font-serif text-lg font-semibold text-ink-200 mb-2 mt-6 first:mt-0">
             {line.slice(4)}
           </h3>
         )
@@ -153,7 +156,7 @@ function MarkdownRenderer({ content }) {
       elements.push(
         <p
           key={`p-${index}`}
-          className="text-gray-700 mb-4 leading-relaxed"
+          className="text-ink-300 mb-4 leading-relaxed"
           dangerouslySetInnerHTML={{ __html: processInlineFormatting(line) }}
         />
       )
