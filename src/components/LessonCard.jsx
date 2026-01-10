@@ -1,57 +1,33 @@
 import { Link } from 'react-router-dom'
 
-function LessonCard({ lesson, index = 0 }) {
-  const difficultyConfig = {
-    Beginner: { badge: 'badge-green', label: 'Beginner' },
-    Intermediate: { badge: 'badge-yellow', label: 'Intermediate' },
-    Advanced: { badge: 'badge-red', label: 'Advanced' },
+function LessonCard({ lesson }) {
+  const difficultyColors = {
+    Beginner: 'bg-green-100 text-green-700',
+    Intermediate: 'bg-yellow-100 text-yellow-700',
+    Advanced: 'bg-red-100 text-red-700',
   }
-
-  const config = difficultyConfig[lesson.difficulty] || difficultyConfig.Beginner
 
   return (
     <Link
       to={`/lessons/${lesson.id}`}
-      className="group block glass-card hover-lift animate-fade-in-up"
-      style={{ animationDelay: `${index * 0.1}s` }}
+      className="block bg-white rounded-xl border border-gray-200 p-6 hover:shadow-lg hover:border-indigo-300 transition-all group"
     >
-      <div className="p-6 flex items-start gap-5">
-        {/* Icon */}
-        <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-navy-700/50 border border-navy-600/50 flex items-center justify-center text-3xl group-hover:border-amber-500/30 group-hover:bg-amber-500/5 transition-all">
-          {lesson.emoji}
-        </div>
-
-        {/* Content */}
-        <div className="flex-1 min-w-0">
-          <div className="flex items-start justify-between gap-4 mb-2">
-            <h3 className="font-serif text-lg font-semibold text-ink-100 group-hover:text-amber-400 transition-colors">
-              {lesson.title}
-            </h3>
-            <svg className="flex-shrink-0 w-5 h-5 text-ink-600 group-hover:text-amber-400 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
-            </svg>
-          </div>
-
-          <p className="text-ink-400 text-sm leading-relaxed mb-3 line-clamp-2">
-            {lesson.description}
-          </p>
-
-          <div className="flex items-center gap-3">
-            <span className={`badge ${config.badge}`}>
-              {config.label}
+      <div className="flex items-start gap-4">
+        <span className="text-4xl">{lesson.emoji}</span>
+        <div className="flex-1">
+          <h3 className="font-semibold text-lg text-gray-900 group-hover:text-indigo-600 transition-colors">
+            {lesson.title}
+          </h3>
+          <p className="text-gray-600 text-sm mt-1">{lesson.description}</p>
+          <div className="flex items-center gap-3 mt-3">
+            <span className={`px-2 py-1 rounded-full text-xs font-medium ${difficultyColors[lesson.difficulty]}`}>
+              {lesson.difficulty}
             </span>
-            <span className="flex items-center gap-1.5 text-ink-500 text-xs">
-              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              {lesson.duration}
-            </span>
+            <span className="text-gray-400 text-xs">⏱️ {lesson.duration}</span>
           </div>
         </div>
+        <span className="text-gray-300 group-hover:text-indigo-400 transition-colors">→</span>
       </div>
-
-      {/* Bottom border accent on hover */}
-      <div className="h-0.5 bg-gradient-to-r from-transparent via-amber-500/0 to-transparent group-hover:via-amber-500/50 transition-all" />
     </Link>
   )
 }

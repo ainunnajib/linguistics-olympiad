@@ -147,23 +147,15 @@ Master these strategies to maximize your score in the Singapore Linguistics Olym
 
 function Strategy() {
   return (
-    <div className="space-y-8 animate-fade-in">
-      {/* Header */}
-      <div>
-        <div className="flex items-center gap-3 mb-4">
-          <div className="w-12 h-12 rounded-xl bg-amber-500/20 border border-amber-500/30 flex items-center justify-center">
-            <svg className="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
-            </svg>
-          </div>
-          <div>
-            <h1 className="font-serif text-3xl font-bold text-ink-100">Exam Strategy</h1>
-            <p className="text-ink-400 text-sm">Proven strategies to maximize your SLO score</p>
-          </div>
-        </div>
+    <div>
+      <div className="mb-8">
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">🎯 Exam Strategy</h1>
+        <p className="text-gray-600">
+          Proven strategies to maximize your SLO score
+        </p>
       </div>
 
-      <div className="glass-card p-6 sm:p-8">
+      <div className="bg-white rounded-xl border border-gray-200 p-6 md:p-8">
         <MarkdownRenderer content={strategyContent} />
       </div>
     </div>

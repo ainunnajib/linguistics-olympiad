@@ -8,14 +8,9 @@ function LessonDetail() {
 
   if (!lesson) {
     return (
-      <div className="text-center py-12 animate-fade-in">
-        <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-rose-500/20 border border-rose-500/30 flex items-center justify-center">
-          <svg className="w-8 h-8 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </div>
-        <h1 className="font-serif text-2xl font-bold text-ink-100 mb-4">Lesson not found</h1>
-        <Link to="/lessons" className="text-amber-400 hover:text-amber-300 transition-colors">
+      <div className="text-center py-12">
+        <h1 className="text-2xl font-bold text-gray-900 mb-4">Lesson not found</h1>
+        <Link to="/lessons" className="text-indigo-600 hover:underline">
           ← Back to Lessons
         </Link>
       </div>
@@ -26,67 +21,50 @@ function LessonDetail() {
   const prevLesson = lessons[currentIndex - 1]
   const nextLesson = lessons[currentIndex + 1]
 
-  const difficultyConfig = {
-    Beginner: 'badge-green',
-    Intermediate: 'badge-yellow',
-    Advanced: 'badge-red',
-  }
-
   return (
-    <div className="space-y-6 animate-fade-in">
+    <div>
       {/* Breadcrumb */}
-      <Link
-        to="/lessons"
-        className="inline-flex items-center gap-2 text-ink-400 hover:text-amber-400 text-sm transition-colors"
-      >
-        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-        </svg>
-        Back to Lessons
-      </Link>
+      <div className="mb-6">
+        <Link to="/lessons" className="text-indigo-600 hover:underline text-sm">
+          ← Back to Lessons
+        </Link>
+      </div>
 
       {/* Header */}
-      <div className="glass-card p-6 sm:p-8">
-        <div className="flex items-start gap-5 mb-4">
-          <div className="flex-shrink-0 w-16 h-16 rounded-xl bg-navy-700/50 border border-navy-600/50 flex items-center justify-center text-4xl">
-            {lesson.emoji}
-          </div>
-          <div className="flex-1 min-w-0">
-            <h1 className="font-serif text-2xl sm:text-3xl font-bold text-ink-100 mb-3">
-              {lesson.title}
-            </h1>
-            <div className="flex flex-wrap items-center gap-3">
-              <span className={`badge ${difficultyConfig[lesson.difficulty]}`}>
+      <div className="bg-white rounded-xl border border-gray-200 p-6 mb-6">
+        <div className="flex items-center gap-4 mb-4">
+          <span className="text-5xl">{lesson.emoji}</span>
+          <div>
+            <h1 className="text-2xl font-bold text-gray-900">{lesson.title}</h1>
+            <div className="flex items-center gap-3 mt-2">
+              <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                lesson.difficulty === 'Beginner' ? 'bg-green-100 text-green-700' :
+                lesson.difficulty === 'Intermediate' ? 'bg-yellow-100 text-yellow-700' :
+                'bg-red-100 text-red-700'
+              }`}>
                 {lesson.difficulty}
               </span>
-              <span className="flex items-center gap-1.5 text-ink-400 text-sm">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                {lesson.duration}
-              </span>
+              <span className="text-gray-500 text-sm">⏱️ {lesson.duration}</span>
             </div>
           </div>
         </div>
-        <p className="text-ink-300 leading-relaxed">{lesson.description}</p>
+        <p className="text-gray-600">{lesson.description}</p>
       </div>
 
       {/* Content */}
-      <div className="glass-card p-6 sm:p-8">
+      <div className="bg-white rounded-xl border border-gray-200 p-6 md:p-8">
         <MarkdownRenderer content={lesson.content} />
       </div>
 
       {/* Navigation */}
-      <div className="flex justify-between items-center pt-6 border-t border-navy-700/50">
+      <div className="flex justify-between items-center mt-8 pt-6 border-t border-gray-200">
         {prevLesson ? (
           <Link
             to={`/lessons/${prevLesson.id}`}
-            className="group flex items-center gap-3 text-ink-400 hover:text-amber-400 transition-colors"
+            className="flex items-center gap-2 text-indigo-600 hover:text-indigo-800"
           >
-            <svg className="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-            </svg>
-            <span className="text-sm">{prevLesson.title}</span>
+            <span>←</span>
+            <span>{prevLesson.title}</span>
           </Link>
         ) : (
           <div />
@@ -94,22 +72,18 @@ function LessonDetail() {
         {nextLesson ? (
           <Link
             to={`/lessons/${nextLesson.id}`}
-            className="group flex items-center gap-3 text-ink-400 hover:text-amber-400 transition-colors"
+            className="flex items-center gap-2 text-indigo-600 hover:text-indigo-800"
           >
-            <span className="text-sm">{nextLesson.title}</span>
-            <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
+            <span>{nextLesson.title}</span>
+            <span>→</span>
           </Link>
         ) : (
           <Link
             to="/problems"
-            className="btn-primary text-sm"
+            className="flex items-center gap-2 text-indigo-600 hover:text-indigo-800"
           >
-            Try Practice Problems
-            <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
+            <span>Try Practice Problems</span>
+            <span>→</span>
           </Link>
         )}
       </div>

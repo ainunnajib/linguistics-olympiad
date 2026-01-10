@@ -12,14 +12,9 @@ function ProblemDetail() {
 
   if (!problem) {
     return (
-      <div className="text-center py-12 animate-fade-in">
-        <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-rose-500/20 border border-rose-500/30 flex items-center justify-center">
-          <svg className="w-8 h-8 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </div>
-        <h1 className="font-serif text-2xl font-bold text-ink-100 mb-4">Problem not found</h1>
-        <Link to="/problems" className="text-purple-400 hover:text-purple-300 transition-colors">
+      <div className="text-center py-12">
+        <h1 className="text-2xl font-bold text-gray-900 mb-4">Problem not found</h1>
+        <Link to="/problems" className="text-indigo-600 hover:underline">
           ← Back to Problems
         </Link>
       </div>
@@ -30,147 +25,106 @@ function ProblemDetail() {
   const prevProblem = problems[currentIndex - 1]
   const nextProblem = problems[currentIndex + 1]
 
-  const difficultyConfig = {
-    Easy: 'badge-green',
-    Medium: 'badge-yellow',
-    Hard: 'badge-red',
-  }
-
   return (
-    <div className="space-y-6 animate-fade-in">
+    <div>
       {/* Breadcrumb */}
-      <Link
-        to="/problems"
-        className="inline-flex items-center gap-2 text-ink-400 hover:text-purple-400 text-sm transition-colors"
-      >
-        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-        </svg>
-        Back to Problems
-      </Link>
+      <div className="mb-6">
+        <Link to="/problems" className="text-purple-600 hover:underline text-sm">
+          ← Back to Problems
+        </Link>
+      </div>
 
       {/* Header */}
-      <div className="glass-card p-6 sm:p-8">
-        <div className="flex items-start gap-5 mb-4">
-          <div className="flex-shrink-0 w-16 h-16 rounded-xl bg-navy-700/50 border border-navy-600/50 flex items-center justify-center text-4xl">
-            {problem.emoji}
-          </div>
-          <div className="flex-1 min-w-0">
-            <h1 className="font-serif text-2xl sm:text-3xl font-bold text-ink-100 mb-3">
-              {problem.title}
-            </h1>
-            <div className="flex flex-wrap items-center gap-3">
-              <span className="badge badge-purple">
+      <div className="bg-white rounded-xl border border-gray-200 p-6 mb-6">
+        <div className="flex items-center gap-4 mb-4">
+          <span className="text-5xl">{problem.emoji}</span>
+          <div>
+            <h1 className="text-2xl font-bold text-gray-900">{problem.title}</h1>
+            <div className="flex items-center gap-3 mt-2">
+              <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">
                 {problem.category}
               </span>
-              <span className={`badge ${difficultyConfig[problem.difficulty]}`}>
+              <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                problem.difficulty === 'Easy' ? 'bg-green-100 text-green-700' :
+                problem.difficulty === 'Medium' ? 'bg-yellow-100 text-yellow-700' :
+                'bg-red-100 text-red-700'
+              }`}>
                 {problem.difficulty}
               </span>
             </div>
           </div>
         </div>
-        <p className="text-ink-300 leading-relaxed">{problem.description}</p>
+        <p className="text-gray-600">{problem.description}</p>
       </div>
 
       {/* Problem Content */}
-      <div className="glass-card p-6 sm:p-8">
+      <div className="bg-white rounded-xl border border-gray-200 p-6 md:p-8 mb-6">
         <MarkdownRenderer content={problem.problem} />
       </div>
 
       {/* Hints Section */}
-      <div className="glass-card overflow-hidden">
-        <button
-          onClick={() => setShowHints(!showHints)}
-          className="w-full flex items-center justify-between p-6 text-left hover:bg-navy-700/30 transition-colors"
-        >
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-amber-500/20 border border-amber-500/30 flex items-center justify-center">
-              <svg className="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-              </svg>
-            </div>
-            <div>
-              <h3 className="font-serif font-semibold text-ink-100">Need a hint?</h3>
-              <p className="text-ink-400 text-sm">{problem.hints.length} hints available</p>
-            </div>
-          </div>
-          <svg className={`w-5 h-5 text-ink-400 transition-transform ${showHints ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
-
+      <div className="bg-amber-50 rounded-xl border border-amber-200 p-6 mb-6">
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="font-semibold text-amber-900">💡 Need a hint?</h3>
+          <button
+            onClick={() => setShowHints(!showHints)}
+            className="text-amber-700 text-sm hover:underline"
+          >
+            {showHints ? 'Hide hints' : 'Show hints'}
+          </button>
+        </div>
         {showHints && (
-          <div className="px-6 pb-6 space-y-3 animate-fade-in">
+          <div className="space-y-3">
             {problem.hints.map((hint, index) => (
               <div key={index}>
                 {index < hintsRevealed ? (
-                  <div className="bg-amber-500/10 border border-amber-500/20 rounded-xl p-4">
-                    <p className="text-ink-200 text-sm">
-                      <span className="font-medium text-amber-400">Hint {index + 1}:</span> {hint}
-                    </p>
-                  </div>
+                  <p className="text-amber-800 text-sm bg-amber-100 p-3 rounded">
+                    <strong>Hint {index + 1}:</strong> {hint}
+                  </p>
                 ) : index === hintsRevealed ? (
                   <button
                     onClick={() => setHintsRevealed(hintsRevealed + 1)}
-                    className="flex items-center gap-2 text-amber-400 hover:text-amber-300 text-sm transition-colors"
+                    className="text-amber-700 text-sm hover:underline"
                   >
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                    </svg>
-                    Reveal Hint {index + 1}
+                    Reveal Hint {index + 1} →
                   </button>
                 ) : null}
               </div>
             ))}
             {hintsRevealed === problem.hints.length && (
-              <p className="text-ink-500 text-sm">All hints revealed!</p>
+              <p className="text-amber-600 text-sm">All hints revealed!</p>
             )}
           </div>
         )}
       </div>
 
       {/* Solution Section */}
-      <div className="glass-card overflow-hidden">
-        <div className="flex items-center justify-between p-6">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center">
-              <svg className="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            </div>
-            <h3 className="font-serif font-semibold text-ink-100">Solution</h3>
-          </div>
+      <div className="bg-green-50 rounded-xl border border-green-200 p-6 mb-6">
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="font-semibold text-green-900">✅ Solution</h3>
           <button
             onClick={() => setShowSolution(!showSolution)}
-            className={`px-4 py-2 rounded-xl text-sm font-medium transition-all ${
-              showSolution
-                ? 'bg-navy-700/50 text-ink-300 border border-navy-600/50'
-                : 'bg-gradient-to-r from-emerald-500 to-emerald-600 text-navy-950'
-            }`}
+            className="bg-green-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-green-700 transition-colors"
           >
             {showSolution ? 'Hide Solution' : 'Show Solution'}
           </button>
         </div>
-
         {showSolution && (
-          <div className="px-6 pb-6 pt-2 border-t border-navy-700/50 animate-fade-in">
+          <div className="mt-4 pt-4 border-t border-green-200">
             <MarkdownRenderer content={problem.solution} />
           </div>
         )}
       </div>
 
       {/* Navigation */}
-      <div className="flex justify-between items-center pt-6 border-t border-navy-700/50">
+      <div className="flex justify-between items-center mt-8 pt-6 border-t border-gray-200">
         {prevProblem ? (
           <Link
             to={`/problems/${prevProblem.id}`}
-            className="group flex items-center gap-3 text-ink-400 hover:text-purple-400 transition-colors"
+            className="flex items-center gap-2 text-purple-600 hover:text-purple-800"
           >
-            <svg className="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-            </svg>
-            <span className="text-sm">{prevProblem.title}</span>
+            <span>←</span>
+            <span>{prevProblem.title}</span>
           </Link>
         ) : (
           <div />
@@ -178,22 +132,18 @@ function ProblemDetail() {
         {nextProblem ? (
           <Link
             to={`/problems/${nextProblem.id}`}
-            className="group flex items-center gap-3 text-ink-400 hover:text-purple-400 transition-colors"
+            className="flex items-center gap-2 text-purple-600 hover:text-purple-800"
           >
-            <span className="text-sm">{nextProblem.title}</span>
-            <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
+            <span>{nextProblem.title}</span>
+            <span>→</span>
           </Link>
         ) : (
           <Link
             to="/quiz"
-            className="btn-primary text-sm"
+            className="flex items-center gap-2 text-purple-600 hover:text-purple-800"
           >
-            Take the Quiz
-            <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
+            <span>Take the Quiz</span>
+            <span>→</span>
           </Link>
         )}
       </div>

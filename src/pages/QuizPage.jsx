@@ -17,24 +17,14 @@ function QuizPage() {
 
   if (quizStarted) {
     return (
-      <div className="space-y-6">
-        <div className="flex items-center justify-between animate-fade-in">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center">
-              <svg className="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            </div>
-            <h1 className="font-serif text-2xl font-bold text-ink-100">Quiz</h1>
-          </div>
+      <div>
+        <div className="mb-6 flex items-center justify-between">
+          <h1 className="text-2xl font-bold text-gray-900">✏️ Quiz</h1>
           <button
             onClick={() => setQuizStarted(false)}
-            className="flex items-center gap-2 text-ink-400 hover:text-amber-400 text-sm transition-colors"
+            className="text-gray-600 hover:text-gray-900 text-sm"
           >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-            </svg>
-            Back to Setup
+            ← Back to Setup
           </button>
         </div>
         <Quiz questions={shuffledQuestions.slice(0, 10)} />
@@ -43,29 +33,20 @@ function QuizPage() {
   }
 
   return (
-    <div className="space-y-8">
-      {/* Header */}
-      <div className="animate-fade-in">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="w-12 h-12 rounded-xl bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center">
-            <svg className="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-          </div>
-          <div>
-            <h1 className="font-serif text-3xl font-bold text-ink-100">Quiz</h1>
-            <p className="text-ink-400 text-sm">Test your linguistics knowledge</p>
-          </div>
-        </div>
+    <div>
+      <div className="mb-8">
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">✏️ Quiz</h1>
+        <p className="text-gray-600">
+          Test your linguistics olympiad knowledge with these quiz questions.
+        </p>
       </div>
 
-      {/* Setup Card */}
-      <div className="glass-card p-6 sm:p-8 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-        <h2 className="font-serif text-xl font-semibold text-ink-100 mb-6">Quiz Setup</h2>
+      <div className="bg-white rounded-xl border border-gray-200 p-6 md:p-8">
+        <h2 className="text-xl font-semibold text-gray-900 mb-4">Quiz Setup</h2>
 
         {/* Category Selection */}
-        <div className="mb-8">
-          <label className="block text-sm font-medium text-ink-300 mb-3">
+        <div className="mb-6">
+          <label className="block text-sm font-medium text-gray-700 mb-2">
             Select Category
           </label>
           <div className="flex flex-wrap gap-2">
@@ -73,10 +54,10 @@ function QuizPage() {
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`px-4 py-2 rounded-xl text-sm font-medium transition-all ${
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                   selectedCategory === category
-                    ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-navy-950 shadow-lg shadow-amber-500/20'
-                    : 'bg-navy-700/50 text-ink-300 border border-navy-600/50 hover:border-amber-500/30 hover:bg-amber-500/5'
+                    ? 'bg-indigo-600 text-white'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
               >
                 {category === 'all' ? 'All Categories' : category}
@@ -86,19 +67,19 @@ function QuizPage() {
         </div>
 
         {/* Quiz Info */}
-        <div className="bg-navy-800/50 rounded-xl p-6 mb-8 border border-navy-700/50">
-          <div className="grid grid-cols-2 gap-6 text-center">
+        <div className="bg-gray-50 rounded-lg p-4 mb-6">
+          <div className="grid grid-cols-2 gap-4 text-center">
             <div>
-              <div className="text-3xl font-bold text-gradient">
+              <div className="text-2xl font-bold text-indigo-600">
                 {Math.min(10, filteredQuestions.length)}
               </div>
-              <div className="text-sm text-ink-400 mt-1">Questions</div>
+              <div className="text-sm text-gray-600">Questions</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-ink-200">
+              <div className="text-2xl font-bold text-indigo-600">
                 {filteredQuestions.length}
               </div>
-              <div className="text-sm text-ink-400 mt-1">Available in category</div>
+              <div className="text-sm text-gray-600">Available in category</div>
             </div>
           </div>
         </div>
@@ -107,49 +88,25 @@ function QuizPage() {
         <button
           onClick={() => setQuizStarted(true)}
           disabled={filteredQuestions.length === 0}
-          className={`w-full py-4 rounded-xl font-semibold text-lg transition-all ${
+          className={`w-full py-4 rounded-lg font-semibold text-lg transition-colors ${
             filteredQuestions.length > 0
-              ? 'btn-primary'
-              : 'bg-navy-700/30 text-ink-500 cursor-not-allowed border border-navy-600/30'
+              ? 'bg-indigo-600 text-white hover:bg-indigo-700'
+              : 'bg-gray-200 text-gray-500 cursor-not-allowed'
           }`}
         >
-          Start Quiz
-          <svg className="inline-block w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-          </svg>
+          Start Quiz →
         </button>
       </div>
 
       {/* Tips */}
-      <div className="glass-card p-6 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-        <div className="flex items-start gap-4">
-          <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center">
-            <svg className="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-            </svg>
-          </div>
-          <div>
-            <h3 className="font-serif font-semibold text-ink-100 mb-2">Quiz Tips</h3>
-            <ul className="text-ink-400 text-sm space-y-2">
-              <li className="flex items-start gap-2">
-                <span className="text-emerald-500 mt-1">•</span>
-                Read each question carefully before answering
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-emerald-500 mt-1">•</span>
-                Eliminate obviously wrong answers first
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-emerald-500 mt-1">•</span>
-                Apply what you learned in the lessons
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-emerald-500 mt-1">•</span>
-                Don't rush — think through each answer
-              </li>
-            </ul>
-          </div>
-        </div>
+      <div className="mt-8 p-6 bg-indigo-50 rounded-xl border border-indigo-100">
+        <h3 className="font-semibold text-indigo-900 mb-2">📝 Quiz Tips</h3>
+        <ul className="text-indigo-800 text-sm space-y-1">
+          <li>• Read each question carefully</li>
+          <li>• Eliminate obviously wrong answers first</li>
+          <li>• Apply what you learned in the lessons</li>
+          <li>• Don't rush — think through each answer</li>
+        </ul>
       </div>
     </div>
   )
