@@ -198,5 +198,125 @@ export const quizQuestions = [
     options: ["Additive system", "Subtractive system", "Multiplicative system", "Base-15 system"],
     correct: 1,
     explanation: "Subtractive systems express numbers by subtraction from a larger unit. Latin also does this: 19 = undeviginti (one-from-twenty)."
+  },
+  {
+    id: 26,
+    category: "Syntax",
+    question: "In Basque, the subject of 'I see him' is marked differently from 'I run'. This is called:",
+    options: ["Nominative-Accusative", "Ergative-Absolutive", "Active-Stative", "Tripartite"],
+    correct: 1,
+    explanation: "Ergative-absolutive systems mark transitive subjects (ergative) differently from intransitive subjects and objects (both absolutive). The 'seer' gets ergative case."
+  },
+  {
+    id: 27,
+    category: "Syntax",
+    question: "In an ergative language, which arguments share the same case marking?",
+    options: ["Subject of 'run' + Subject of 'see'", "Subject of 'see' + Object of 'see'", "Subject of 'run' + Object of 'see'", "All arguments are marked differently"],
+    correct: 2,
+    explanation: "In ergative-absolutive systems, intransitive subject (S) and transitive object (O) share ABSOLUTIVE case, while transitive subject (A) gets ERGATIVE case."
+  },
+  {
+    id: 28,
+    category: "Morphology",
+    question: "Tagalog marks which argument is the topic using verb affixes. This system is called:",
+    options: ["Case system", "Voice/Focus system", "Agreement system", "Tense system"],
+    correct: 1,
+    explanation: "Philippine-type voice/focus systems mark on the verb which argument (actor, patient, location, etc.) is the topic/focus of the sentence."
+  },
+  {
+    id: 29,
+    category: "Morphology",
+    question: "In Chinese, you say 'three FLAT book' not 'three book'. What is the word FLAT called?",
+    options: ["Article", "Demonstrative", "Classifier/Measure word", "Plural marker"],
+    correct: 2,
+    explanation: "Classifiers (or measure words) categorize nouns by properties like shape, animacy, or size. Chinese, Vietnamese, Thai, and Japanese all use classifiers extensively."
+  },
+  {
+    id: 30,
+    category: "Morphology",
+    question: "Vietnamese uses different classifiers: 'con' for animals, 'cái' for objects, 'cuốn' for books. What determines the classifier?",
+    options: ["The number being used", "The semantic category of the noun", "The grammatical gender", "The tense of the verb"],
+    correct: 1,
+    explanation: "Classifiers are chosen based on the semantic properties of the noun: shape, animacy, size, function, etc. 'Con' = animate, 'cái' = inanimate object, 'cuốn' = bound volumes."
+  },
+  {
+    id: 31,
+    category: "Morphology",
+    question: "Nahuatl 'ni-naka-kwa' means 'I eat meat' (I-meat-eat). This structure is called:",
+    options: ["Agglutination", "Noun incorporation", "Compounding", "Cliticization"],
+    correct: 1,
+    explanation: "Noun incorporation merges a noun into the verb to form a single word. The object 'meat' becomes part of the verb 'eat' creating 'meat-eating' as one word."
+  },
+  {
+    id: 32,
+    category: "Morphology",
+    question: "Languages like Nahuatl and Mohawk can express 'I-saw-the-big-red-house' as one word. These are called:",
+    options: ["Analytic languages", "Polysynthetic languages", "Isolating languages", "Fusional languages"],
+    correct: 1,
+    explanation: "Polysynthetic languages combine many morphemes into single words, often incorporating nouns, adverbs, and other elements into the verb."
+  },
+  {
+    id: 33,
+    category: "Phonology",
+    question: "In Turkish, 'ev' + plural + 'in' = 'evlerin' but 'köy' + plural + 'in' = 'köylerin'. What pattern is this?",
+    options: ["Consonant harmony", "Vowel harmony", "Umlaut", "Ablaut"],
+    correct: 1,
+    explanation: "Turkish has vowel harmony: vowels in suffixes change to match the vowels in the root. Front vowels (e, i, ö, ü) and back vowels (a, ı, o, u) stay together."
+  },
+  {
+    id: 34,
+    category: "Phonology",
+    question: "In a tone language, 'ma' with high tone means 'mother' but 'ma' with falling tone means 'scold'. Tone is:",
+    options: ["Optional emphasis", "Distinctive/phonemic", "Grammatical only", "Dialectal variation"],
+    correct: 1,
+    explanation: "In tone languages, pitch differences are phonemic (distinctive) - they change word meaning. Mandarin Chinese has 4 tones; Vietnamese has 6."
+  },
+  {
+    id: 35,
+    category: "Writing Systems",
+    question: "Korean Hangul groups letters into syllable blocks. What type of system is this?",
+    options: ["Pure alphabet", "Syllabary", "Featural alphabet/Alphabetic syllabary", "Logographic"],
+    correct: 2,
+    explanation: "Hangul is a featural alphabet with syllabic arrangement. Individual letters represent sounds (like an alphabet) but are grouped into syllable blocks."
+  },
+  {
+    id: 36,
+    category: "Syntax",
+    question: "In the sentence 'It was JOHN who ate the cake', 'John' is emphasized through:",
+    options: ["Topicalization", "Cleft construction", "Passive voice", "Pronoun drop"],
+    correct: 1,
+    explanation: "Cleft constructions use 'it is/was X who/that...' to focus or emphasize a particular element. Many languages have similar focus-marking strategies."
+  },
+  {
+    id: 37,
+    category: "General",
+    question: "When a linguistics problem shows both the foreign language AND English translations, you should first:",
+    options: ["Memorize all the words", "Find words that appear multiple times", "Translate word-by-word immediately", "Focus on the longest sentences"],
+    correct: 1,
+    explanation: "Finding repeated elements helps you identify consistent meanings. If 'kuma' appears in 'I eat' and 'You eat', then 'kuma' likely means 'eat'."
+  },
+  {
+    id: 38,
+    category: "Number Systems",
+    question: "If 18 = 'twenty minus two' and 37 = 'two twenties minus three', what is 56?",
+    options: ["Three twenties minus four", "Two twenties plus sixteen", "Three twenties minus four", "Sixty minus four"],
+    correct: 0,
+    explanation: "Following the pattern: 56 = 60 - 4 = 3×20 - 4 = 'three twenties minus four'. This is a vigesimal subtractive system."
+  },
+  {
+    id: 39,
+    category: "Morphology",
+    question: "Indonesian: 'tulis'=write, 'penulis'=writer, 'menulis'=to write, 'tulisan'=writing. What type of affixation is this?",
+    options: ["Only prefixation", "Only suffixation", "Circumfixation", "Prefixes AND suffixes (both)"],
+    correct: 3,
+    explanation: "Indonesian uses both prefixes (pe-, me-) and suffixes (-an) to derive new words from roots. 'Pe-' = agent, 'me-' = active verb, '-an' = result/noun."
+  },
+  {
+    id: 40,
+    category: "General",
+    question: "A linguistics problem gives you 10 sentences. Which approach is MOST efficient?",
+    options: ["Solve them in order 1-10", "Start with the shortest sentences", "Start with sentences sharing common words", "Randomly pick sentences"],
+    correct: 2,
+    explanation: "Comparing sentences with common elements reveals what the differing parts mean. Short sentences are also good starting points for establishing basic patterns."
   }
 ];
